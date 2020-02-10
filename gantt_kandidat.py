@@ -61,5 +61,5 @@ entries.append(GanttChartEntry("Slutredovisning", "2020-05-14", "2020-05-26", 10
 for entry in entries:
     add_gantt_chart_entry(entry)
 
-fig = ff.create_gantt(df, colors=['#008fff', '#73e000'], index_col='Complete', show_colorbar=True, bar_width=0.4, showgrid_x=True, task_names="Task")
+fig = ff.create_gantt(df, colors=['#008fff', '#fff700', '#73e000'], index_col='Complete', show_colorbar=True, bar_width=0.4, showgrid_x=True, task_names="Task")
 fig.show()
