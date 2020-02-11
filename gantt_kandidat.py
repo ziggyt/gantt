@@ -24,7 +24,7 @@ class GanttChartEntry:
         self.finish: str = self.finish_datetime.strftime('%Y-%m-%d')
 
     def get_name(self):
-        return f"{self.name} [{self.start} - {self.finish} ({self.days} days)] "
+        return f"{self.name:<50} [{self.start} - {self.finish} ({self.days} dagar)] "
 
 
 def add_gantt_chart_entry(gantt_chart_entry: GanttChartEntry):
@@ -47,19 +47,17 @@ entries.append(GanttChartEntry("Första prototyp (papper och påbörjad i Unity)
 entries.append(GanttChartEntry("Halvtidsredovisning", "2020-02-24", "2020-03-03", 50))
 entries.append(GanttChartEntry("Översyn epics och user stories", "2020-03-02", "2020-03-13", 55))
 entries.append(GanttChartEntry("Uppdatera pappersprototyp", "2020-03-02", "2020-03-13", 60))
-entries.append(GanttChartEntry("Implementera funktionalitet i Unity etapp 1", "2020-03-09", "2020-03-13", 65))
+entries.append(GanttChartEntry("Implementera funktionalitet i Unity etapp 1", "2020-02-28", "2020-04-01", 65))
 entries.append(GanttChartEntry("Rapport utkast 2", "2020-03-16", "2020-04-17", 75))
 entries.append(GanttChartEntry("Implementera funktionalitet i Unity etapp 2", "2020-04-06", "2020-05-03", 85))
 entries.append(GanttChartEntry("Fokus debugging", "2020-04-27", "2020-05-10", 90))
 entries.append(GanttChartEntry("Utvärdera utkast och färdigställ rapport", "2020-04-15", "2020-05-14", 95))
-entries.append(GanttChartEntry("Slutredovisning", "2020-05-14", "2020-05-26", 100))
+entries.append(GanttChartEntry("Slutredovisning", "2020-05-10", "2020-05-26", 100))
 
-
-
-
-
+entries.reverse()
 for entry in entries:
     add_gantt_chart_entry(entry)
 
-fig = ff.create_gantt(df, colors=['#008fff', '#fff700', '#73e000'], index_col='Complete', show_colorbar=True, bar_width=0.4, showgrid_x=True, task_names="Task")
+fig = ff.create_gantt(df, colors=['#008fff', '#fff700', '#73e000'], index_col='Complete', show_colorbar=True,
+                      bar_width=0.4, showgrid_x=True, showgrid_y=True, task_names="Task")
 fig.show()
